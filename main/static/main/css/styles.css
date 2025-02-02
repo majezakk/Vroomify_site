@@ -1,0 +1,254 @@
+ /* Общие стили */
+  body {
+    background-color: #f7f1e3; /* теплый бежевый фон */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+
+  /* Анимация появления секций */
+  section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+    animation-play-state: paused;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+    animation: fadeInDown 1s ease-out;
+  }
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  header p.lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  .btn-primary {
+    background-color: #d35400;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+  }
+
+  /* Services Section */
+  #services {
+    background-color: #fffaf0;
+    padding: 60px 0;
+  }
+  #services h2 {
+    color: #d35400;
+    margin-bottom: 40px;
+  }
+  .service-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  /* Appointment Form Section */
+  #appointment {
+    background-color: #fefefe;
+    padding: 60px 0;
+  }
+  #appointment h2 {
+    color: #d35400;
+    margin-bottom: 40px;
+  }
+  form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  form .form-label {
+    color: #d35400;
+  }
+  form input,
+  form select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  /* Contacts Section */
+  #contacts {
+    background-color: #f7f1e3;
+    padding: 60px 0;
+  }
+  #contacts h2 {
+    color: #d35400;
+    margin-bottom: 40px;
+  }
+  .contact-info p {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  /* Advantages Section */
+  #advantages {
+    background-color: #fffaf0;
+    padding: 60px 0;
+  }
+  #advantages h2 {
+    color: #d35400;
+    margin-bottom: 40px;
+  }
+  .advantage-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .advantage-card h4 {
+    color: #d35400;
+    margin-bottom: 10px;
+  }
+
+  /* Testimonials Section */
+  #testimonials {
+    background-color: #fff;
+    padding: 60px 0;
+  }
+  #testimonials h2 {
+    color: #d35400;
+    margin-bottom: 40px;
+  }
+  .testimonial-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  blockquote {
+    font-style: italic;
+    border-left: 4px solid #d35400;
+    padding-left: 15px;
+  }
+
+  /* Promotions Section */
+  #promotions {
+    background-color: #d35400;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+  }
+  #promotions h2 {
+    margin-bottom: 20px;
+  }
+  #promotions p.lead {
+    font-size: 1.5rem;
+  }
+
+  /* Gallery Section */
+  #gallery {
+    background-color: #fffaf0;
+    padding: 60px 0;
+  }
+  #gallery h2 {
+    color: #d35400;
+    margin-bottom: 40px;
+  }
+  #gallery img {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  /* Общий контейнер формы */
+#appointment form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для меток */
+#appointment form .form-label {
+  font-weight: 600;
+  color: #d35400;
+  margin-bottom: 5px;
+}
+
+/* Стили для полей ввода и селекторов */
+#appointment form .form-control,
+#appointment form .form-select {
+  border: 2px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Стили при фокусе на полях ввода */
+#appointment form .form-control:focus,
+#appointment form .form-select:focus {
+  border-color: #d35400;
+  box-shadow: none;
+}
+
+/* Кастомизация кнопки отправки */
+#appointment form button[type="submit"] {
+  background-color: #d35400;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Эффект наведения на кнопку */
+#appointment form button[type="submit"]:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+}

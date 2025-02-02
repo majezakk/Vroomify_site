@@ -1,0 +1,229 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1>Профессиональный ремонт автомобилей с гарантией качества</h1>
+    <p class="lead">Запишитесь на онлайн консультацию и получите скидку 10% на первое посещение!</p>
+    <a href="#appointment" class="btn btn-primary">Записаться онлайн</a>
+  </div>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="py-5">
+  <div class="container">
+    <h2 class="text-center">Наши услуги</h2>
+    <div class="row mt-4">
+      <!-- Карточка 1 -->
+      <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        <div class="service-card h-100">
+          <h5>Диагностика автомобиля</h5>
+          <p>Проведение полной диагностики для выявления проблем.</p>
+        </div>
+      </div>
+      <!-- Карточка 2 -->
+      <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        <div class="service-card h-100">
+          <h5>Ремонт двигателя и трансмиссии</h5>
+          <p>Качественный ремонт и замена деталей для надежной работы.</p>
+        </div>
+      </div>
+      <!-- Карточка 3 -->
+      <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        <div class="service-card h-100">
+          <h5>Замена масла и техническое обслуживание</h5>
+          <p>Регулярное обслуживание для продления срока службы вашего авто.</p>
+        </div>
+      </div>
+      <!-- Карточка 4 -->
+      <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        <div class="service-card h-100">
+          <h5>Кузовной ремонт и покраска</h5>
+          <p>Профессиональный ремонт кузова и высококачественная покраска.</p>
+        </div>
+      </div>
+      <!-- Карточка 5 -->
+      <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        <div class="service-card h-100">
+          <h5>Замена шин и балансировка</h5>
+          <p>Быстрая и качественная замена шин и балансировка для вашей безопасности.</p>
+        </div>
+      </div>
+      <!-- Новая карточка -->
+      <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        <div class="service-card h-100">
+          <h5>Обслуживание кондиционера</h5>
+          <p>Проверка, заправка и обслуживание системы кондиционирования для максимального комфорта в жаркие дни.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Appointment Section -->
+<section id="appointment" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center">Запись на услугу</h2>
+    <form action="#" method="post" class="mx-auto mt-4" style="max-width:600px;">
+        {% csrf_token %}
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="name" class="form-label">Имя</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required>
+        </div>
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Телефон</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="car" class="form-label">Автомобиль</label>
+        <input type="text" class="form-control" id="car" name="car" placeholder="Марка и модель" required>
+      </div>
+      <div class="mb-3">
+        <label for="service" class="form-label">Желаемая услуга</label>
+            <select class="form-select" id="service" name="service" required>
+                <option value="" disabled selected>Выберите услугу</option>
+                <option value="diagnostics">Диагностика автомобиля</option>
+                <option value="engine_repair">Ремонт двигателя и трансмиссии</option>
+                <option value="maintenance">Замена масла и техническое обслуживание</option>
+                <option value="body_repair">Кузовной ремонт и покраска</option>
+                <option value="tire_change">Замена шин и балансировка</option>
+                <option value="ac_service">Обслуживание кондиционера</option>
+            </select>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="date" class="form-label">Дата</label>
+          <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="col-md-6">
+          <label for="time" class="form-label">Время</label>
+          <input type="time" class="form-control" id="time" name="time" required>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Записаться</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Contacts Section -->
+<section id="contacts" class="py-5">
+  <div class="container">
+    <h2 class="text-center">Контакты</h2>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="contact-info">
+          <p><strong>Адрес:</strong> ул. Примерная, 123, Москва</p>
+          <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+          <p><strong>Email:</strong> info@vroomify.ru</p>
+          <p><strong>График работы:</strong> Пн-Пт: 9:00 – 19:00, Сб: 10:00 – 16:00, Вс: выходной</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.111111111111!2d37.6184231!3d55.751244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab2a2cbbbbbbb%3A0xcccccccccccccccc!2z0JrQvtC70LjQvdC40Y8!5e0!3m2!1sru!2sru!4v1587732690237!5m2!1sru!2sru"
+                  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Advantages Section -->
+<section id="advantages" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center">Почему выбирают нас</h2>
+    <div class="row mt-4">
+      <div class="col-md-3 mb-4 d-flex align-items-stretch">
+        <div class="advantage-card h-100">
+          <h4>Опытные мастера</h4>
+          <p>Наши специалисты имеют многолетний опыт работы.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4 d-flex align-items-stretch">
+        <div class="advantage-card h-100">
+          <h4>Гарантия на работу</h4>
+          <p>Мы предоставляем гарантию на все виды работ.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4 d-flex align-items-stretch">
+        <div class="advantage-card h-100">
+          <h4>Быстрое выполнение</h4>
+          <p>Оперативное выполнение заказов без потери качества.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4 d-flex align-items-stretch">
+        <div class="advantage-card h-100">
+          <h4>Удобное расположение</h4>
+          <p>Наш автосервис находится в центре города.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-5">
+  <div class="container">
+    <h2 class="text-center">Отзывы наших клиентов</h2>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <blockquote class="blockquote">
+            <p>"Отличный сервис! Быстро устранили проблему с двигателем! Рекомендую!"</p>
+            <footer class="blockquote-footer">Иван, <cite title="BMW X5">BMW X5</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <blockquote class="blockquote">
+            <p>"Обратился на замену масла, сделали быстро и качественно. Цены адекватные."</p>
+            <footer class="blockquote-footer">Анна, <cite title="Тойота Королла">Тойота Королла</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <blockquote class="blockquote">
+            <p>"Спасибо за покраску бампера. Цвет идеально совпал, как будто ничего и не было. Очень доволен!"</p>
+            <footer class="blockquote-footer">Дмитрий, <cite title="Volkswagen Passat">Volkswagen Passat</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Promotions Section -->
+<section id="promotions" class="py-5">
+  <div class="container">
+    <h2>Акции и скидки</h2>
+    <p class="lead">Скидка 15% на замену масла до конца месяца!</p>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-5">
+  <div class="container">
+    <h2 class="text-center">Фотогалерея</h2>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <img src="{% static 'main/img/1.jpg' %}" class="img-fluid mb-4" alt="Фото мастерской">
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'main/img/2.jpg' %}" class="img-fluid mb-4" alt="Фото оборудования">
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'main/img/3.jpg' %}" class="img-fluid mb-4" alt="Фото механиков">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
