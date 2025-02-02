@@ -67,48 +67,48 @@
 <section id="appointment" class="py-5 bg-light">
   <div class="container">
     <h2 class="text-center">Запись на услугу</h2>
-    <form action="#" method="post" class="mx-auto mt-4" style="max-width:600px;">
-        {% csrf_token %}
-      <div class="row mb-3">
+<form action="{% url 'create_appointment' %}" method="post" class="mx-auto mt-4" style="max-width:600px;" id="appointment-form">
+    {% csrf_token %}
+    <div class="row mb-3">
         <div class="col-md-6">
-          <label for="name" class="form-label">Имя</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required>
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required>
         </div>
         <div class="col-md-6">
-          <label for="phone" class="form-label">Телефон</label>
-          <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            <label for="phone" class="form-label">Телефон</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
         </div>
-      </div>
-      <div class="mb-3">
+    </div>
+    <div class="mb-3">
         <label for="car" class="form-label">Автомобиль</label>
         <input type="text" class="form-control" id="car" name="car" placeholder="Марка и модель" required>
-      </div>
-      <div class="mb-3">
+    </div>
+    <div class="mb-3">
         <label for="service" class="form-label">Желаемая услуга</label>
-            <select class="form-select" id="service" name="service" required>
-                <option value="" disabled selected>Выберите услугу</option>
-                <option value="diagnostics">Диагностика автомобиля</option>
-                <option value="engine_repair">Ремонт двигателя и трансмиссии</option>
-                <option value="maintenance">Замена масла и техническое обслуживание</option>
-                <option value="body_repair">Кузовной ремонт и покраска</option>
-                <option value="tire_change">Замена шин и балансировка</option>
-                <option value="ac_service">Обслуживание кондиционера</option>
-            </select>
-      </div>
-      <div class="row mb-3">
+        <select class="form-select" id="service" name="service" required>
+            <option value="" disabled selected>Выберите услугу</option>
+            <option value="diagnostics">Диагностика автомобиля</option>
+            <option value="engine_repair">Ремонт двигателя и трансмиссии</option>
+            <option value="maintenance">Замена масла и техническое обслуживание</option>
+            <option value="body_repair">Кузовной ремонт и покраска</option>
+            <option value="tire_change">Замена шин и балансировка</option>
+            <option value="ac_service">Обслуживание кондиционера</option>
+        </select>
+    </div>
+    <div class="row mb-3">
         <div class="col-md-6">
-          <label for="date" class="form-label">Дата</label>
-          <input type="date" class="form-control" id="date" name="date" required>
+            <label for="date" class="form-label">Дата</label>
+            <input type="text" class="form-control" id="date" name="date" required>
         </div>
         <div class="col-md-6">
-          <label for="time" class="form-label">Время</label>
-          <input type="time" class="form-control" id="time" name="time" required>
+            <label for="time" class="form-label">Время</label>
+            <input type="text" class="form-control" id="time" name="time" required>
         </div>
-      </div>
-      <div class="text-center">
+    </div>
+    <div class="text-center">
         <button type="submit" class="btn btn-primary">Записаться</button>
-      </div>
-    </form>
+    </div>
+</form>
   </div>
 </section>
 
