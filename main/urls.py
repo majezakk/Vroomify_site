@@ -5,4 +5,5 @@ from .views import create_appointment
 urlpatterns = [
     path('', views.index, name='index'),
     path('appointment/create/', create_appointment, name='create_appointment'),
+    path('more-content/', views.more_content, name='more_content'),
 ]

@@ -5,6 +5,13 @@ from main.forms import AppointmentForm
 def index(request):
     return render(request, 'main/index.html')
 
+def more_content(request):
+    return render(request, 'main/more_content.html')
+
+def register(request):
+    return render(request, 'main/register.html')
+
+
 def create_appointment(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)

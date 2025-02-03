@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <section class="py-5">
+        <div class="container text-center">
+            <h2>Регистрация</h2>
+            <p>Заполните форму, чтобы создать личный кабинет.</p>
+
+            <form method="post" action="{% url 'register' %}" class="mx-auto" style="max-width: 400px;"
+                  id="registration-form">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <div class="mb-3 text-start">
+                    <label for="name" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="name" name="name"
+                           value="{{ form.name.value|default:'' }}" required>
+                </div>
+
+                <div class="mb-3 text-start">
+                    <label for="phone" class="form-label">Телефон</label>
+                    <input type="tel" class="form-control" id="phone" name="phone"
+                           value="{{ form.phone.value|default:'' }}" placeholder="+7 (___) ___-__-__" required>
+                </div>
+
+                <div class="mb-3 text-start">
+                    <label for="email" class="form-label">Почта</label>
+                    <input type="email" class="form-control" id="email" name="email"
+                           value="{{ form.email.value|default:'' }}" required>
+                </div>
+
+                <!-- Пароль с иконкой "глаз" -->
+                <div class="mb-3 text-start position-relative">
+                    <label for="password1" class="form-label">Пароль</label>
+                    <input type="password" class="form-control" id="password1" name="password1" required>
+                    <i class="password-toggle fas fa-eye" data-target="password1"
+                       style="position: absolute; right: 10px; top: 38px; cursor: pointer;"></i>
+                </div>
+
+                <!-- Подтверждение пароля с иконкой "глаз" -->
+                <div class="mb-3 text-start position-relative">
+                    <label for="password2" class="form-label">Подтверждение пароля</label>
+                    <input type="password" class="form-control" id="password2" name="password2" required>
+                    <i class="password-toggle fas fa-eye" data-target="password2"
+                       style="position: absolute; right: 10px; top: 38px; cursor: pointer;"></i>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+            </form>
+
+        </div>
+    </section>
+{% endblock %}

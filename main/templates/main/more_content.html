@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<!-- 🚀 Секция для предложения создать личный кабинет -->
+<section class="account-section py-5 text-center bg-light">
+    <div class="container">
+        <h2>Хотите получить больше возможностей?</h2>
+        <p class="lead">Создайте личный кабинет, чтобы отслеживать записи, получать персональные предложения и управлять своими услугами.</p>
+        <a href="{% url 'register' %}" class="btn btn-primary btn-lg mt-3">Создать личный кабинет</a>
+    </div>
+</section>
+
+<!-- 🔑 Секция для входа в личный кабинет -->
+<section class="login-section py-5 text-center">
+    <div class="container">
+        <h2>Уже есть аккаунт?</h2>
+        <p class="lead">Войдите в личный кабинет, чтобы управлять своими заявками.</p>
+        <form method="post" action="{% url 'login' %}" class="mx-auto" style="max-width: 400px;">
+            {% csrf_token %}
+
+            <!-- Поле для логина (телефон) -->
+            <div class="mb-3 text-start">
+                <label for="username" class="form-label">Телефон</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="+7 (___) ___-__-__" required>
+            </div>
+
+            <!-- Поле для пароля с "глазом" -->
+            <div class="mb-3 text-start position-relative">
+                <label for="password" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+                <i class="password-toggle fas fa-eye" data-target="password" style="position: absolute; right: 10px; top: 38px; cursor: pointer;"></i>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Войти</button>
+        </form>
+    </div>
+</section>
+
+<!-- 🔼 Стрелка для возврата на главную -->
+<div class="back-arrow-container text-center my-4">
+    <a href="{% url 'index' %}" class="back-arrow">&#8593;</a>
+</div>
+
+<section class="py-5">
+    <div class="container text-center">
+        <h2>Добро пожаловать на новую страницу!</h2>
+        <p>Здесь можно разместить дополнительную информацию, акционные предложения, отзывы или что-то ещё.</p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Вернуться на главную</a>
+    </div>
+</section>
+{% endblock %}

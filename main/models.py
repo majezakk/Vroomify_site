@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
+from users.models import CustomUser
 from django.utils.translation import gettext_lazy as _
 
 
@@ -20,6 +21,14 @@ class Appointment(models.Model):
         ('ac_service', _('Обслуживание кондиционера')),
     ]
 
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='appointments'
+    )
+
     name = models.CharField(_('Имя клиента'), max_length=100)
     phone = models.CharField(_('Телефон'), max_length=20)
     car = models.CharField(_('Автомобиль'), max_length=100)
@@ -30,16 +39,13 @@ class Appointment(models.Model):
     created_at = models.DateTimeField(_('Дата создания'), auto_now_add=True)
     last_modified = models.DateTimeField(_('Последнее изменение'), auto_now=True)
 
+
     class Meta:
         verbose_name = _('Запись на услугу')
         verbose_name_plural = _('Записи на услуги')
 
     def __str__(self):
         return f"{self.name} - {self.service} на {self.date} в {self.time} ({self.get_status_display()})"
-
-from django.db import models
-from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
 
 class StatusChangeLog(models.Model):
     appointment = models.ForeignKey(
@@ -59,7 +65,7 @@ class StatusChangeLog(models.Model):
         choices=Appointment.STATUS_CHOICES
     )
     changed_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
         null=True,
         verbose_name=_('Изменил пользователь')
@@ -76,3 +82,4 @@ class StatusChangeLog(models.Model):
 
     def __str__(self):
         return f"{self.appointment} изменён с {self.get_previous_status_display()} на {self.get_new_status_display()}"
+

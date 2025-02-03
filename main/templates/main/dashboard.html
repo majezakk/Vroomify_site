@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<section class="py-5 text-center">
+    <div class="container">
+        <h2>Привет, {{ user_name }}!</h2>
+        <h4>Ваши заявки:</h4>
+        {% if appointments %}
+            <ul class="list-group mt-3">
+                {% for appointment in appointments %}
+                    <li class="list-group-item">
+                        Услуга: {{ appointment.service }} | Дата: {{ appointment.date }} | Время: {{ appointment.time }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>У вас пока нет заявок.</p>
+        {% endif %}
+
+        <!-- 🚪 Кнопка для выхода -->
+        <a href="{% url 'logout' %}" class="btn btn-danger mt-4">Выйти из личного кабинета</a>
+    </div>
+</section>
+{% endblock %}

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     flatpickr("#date", {
       locale: "ru",               // Русская локализация
       dateFormat: "Y-m-d",        // Формат даты для Django: год-месяц-день
-      allowInput: true             // Разрешить ввод вручную
+      allowInput: true            // Разрешить ввод вручную
     });
   }
 
@@ -66,6 +66,39 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => messageContainer.remove(), 5000); // Удалить сообщение через 5 секунд
       })
       .catch(error => console.error('Ошибка:', error));
+    });
+  }
+
+    const toggles = document.querySelectorAll('.password-toggle');
+
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const passwordField = document.getElementById(targetId);
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                this.classList.remove('fa-eye');
+                this.classList.add('fa-eye-slash');  // 👁️ Закрытый глаз
+            } else {
+                passwordField.type = 'password';
+                this.classList.remove('fa-eye-slash');
+                this.classList.add('fa-eye');        // 👁️ Открытый глаз
+            }
+        });
+    });
+
+  // 🛡️ Валидация формы регистрации (проверка совпадения паролей)
+  const registrationForm = document.getElementById('registration-form');
+  if (registrationForm) {
+    registrationForm.addEventListener('submit', function(e) {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm_password').value;
+
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert('Пароли не совпадают. Пожалуйста, попробуйте снова.');
+      }
     });
   }
 });

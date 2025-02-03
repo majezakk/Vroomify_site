@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Appointment, StatusChangeLog
+from .models import *
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
